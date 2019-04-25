@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Proyecto de automatas</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- CDN vis.js-->
+    <script type="text/javascript" src="vis/dist/vis.js"></script>
+    <link href="vis/dist/vis.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="page-header" align="center">
+            <h1>Evaluador de automatas finitos</h1>
+        </div>
+        <!-- Entrada de AF-->
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Agregar nodos -->
+                <div class="panel panel-success">
+
+                    <div class="panel-heading">
+                        <h5 align="center">Agregar nodos</h5>
+                    </div>
+
+                    <div class="panel-body centrar-elementos">
+                        <form class="form-horizontale" id="nodo-box">
+                            <div class="form-group">
+                                <label for="nodo" class="col-sm-3 control-label">Agregar nodo</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="nodo" placeholder="qo" required pattern="[A-Za-z0-9]{0,20}" title="Ingrese solo Numeros o Letras">
+                                </div>
+
+                            </div>
+
+                            <div class="checkbox col-sm-offset-3 col-sm-10">
+                                <label>
+                                    <input type="checkbox" id="nodoInicial"> Inicial
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="nodoFinal"> Final
+                                </label>
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-10">
+                                    <button type="button" class="btn btn-success" onclick="agregarNodo()">Agregar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Agregar aristas -->
+                <div class="panel panel-success">
+
+                    <div class="panel-heading">
+                        <h5 align="center">Agregar aristas</h5>
+                    </div>
+
+                    <div class="panel-body centrar-elementos">
+
+                        <form class="form-horizontal">
+                            <div class="form-group" id="nodoOrigen-box">
+                                <label for="nodoOrigen" class="col-sm-3 control-label">Nodo origen</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="nodoOrigen" placeholder="qo" required pattern="[A-Za-z0-9]{0,20}" title="Ingrese solo Numeros o Letras. Max. un caracter">
+                                </div>
+
+                            </div>
+
+                            <div class="form-group" id="nodoDestino-box">
+                                <label for="nodoDestino" class="col-sm-3 control-label">Nodo destino</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="nodoDestino" placeholder="q1" required pattern="[A-Za-z0-9]{0,20}" title="Ingrese solo Numeros o Letras. Max. un caracter">
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="valorArista-box">
+                                <label for="valorArista" class="col-sm-3 control-label">Valor</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="valorArista" placeholder="a" required pattern="[A-Za-z0-9]{0,20}" title="Ingrese solo Numeros o Letras. Max. un caracter">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-10">
+                                    <button type="button" class="btn btn-success" onclick="agregarArista()">Agregar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" align="center">
+                <!-- Diagrama -->
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h5>Diagrama</h5>
+                    </div>
+                    <div class="panel-body">
+                        <div id="mynetwork"></div>
+                    </div>
+                </div>
+
+                <!-- Evaluar cadena -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h5>Cadena a evaluar</h5>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" id="cadena-box">
+                            <div class="form-group">
+                                <label for="cadena">Cadena</label>
+                                <input type="text" class="form-control" id="cadena" placeholder="aabbcc" required pattern="[A-Za-z0-9]{0,20}" title="Ingrese solo Numeros o Letras">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="evaluarCadena()">Evaluar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+<script src = "js/jquery-3.2.1.min.js"></script>
+<script src = "js/jquery-ui.min.js"></script>
+<script src = "js/bootstrap.min.js"></script>
+<script src = "js/app.js"></script>
+</body>
+</html>
